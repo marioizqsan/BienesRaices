@@ -3,6 +3,11 @@ html {
     /** Reset para REMS - 62.5% = 10px de 16px **/
     /* Trabajar con REM y no con píxeles va a hacer que el contenido se muestre mejor independientemente de la pantalla del dispositivo desde el que accedemos al sitio web */
     /* Por defecto html utiliza 16 px */
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 body {
@@ -60,6 +65,35 @@ h4 {
 
 .centrar-texto {
     text-align: center;
+}
+
+.d-block {
+    display: block!important;
+    /* Con display: block el elemento ocupa todo el ancho permitido */
+    /* !important nos permite priorizar la aplicación de un estilo frente a otro. No es recomendable usar muchos en nuestro proyecto. */
+}
+
+/** Botones **/
+
+.boton {
+    color: #ffffff;
+    /* Letras en color blanco */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    display: inline-block;
+    /* Por defecto los enlaces tienen un display: inline y esto no nos permite agregar un width o un margin, para ello es necesario cambiar a display: block o display: inline-block */
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.boton-amarillo {
+    background-color: #E08709;
+}
+
+.boton-verde {
+    background-color: #71B100;
 }
 
 /* Header */
@@ -178,7 +212,59 @@ h4 {
     /* Aplica padding de 2 rem en todas las direcciones */
 }
 
-.contenido-anuncio h3,
-.contenido-anuncio p {
+.contenido-anuncio h3, .contenido-anuncio p {
     margin: 0;
+}
+
+.precio {
+    color: #71B100;
+    font-weight: 700;
+    /* Por defecto todos los párrafos traen un font-weight de 400, lo cambiamos a 700 para hacerlo más grueso */
+}
+
+.iconos-caracteristicas {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.iconos-caracteristicas li {
+    display: flex;
+    /* Para colocar el número a la derecha del icono */
+}
+
+.iconos-caracteristicas li img {
+    margin-right: 2rem;
+    /* Para establecer una separación de 20px entre icono y número */
+}
+
+/* Este selector para colocar el botón "Ver Todas" a la derecha */
+
+.ver-todas {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/** Contacto Home **/
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    height: 40rem;
+    /* Aumentamos la altura de la imagen para que se muestre algo más de lo que se muestra por defecto */
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    /* Para centrar verticalmente el contenido que hay sobre la imagen */
+    justify-content: flex-start;
+}
+
+.contenido-contacto {
+    flex: 1;
+    /* Divide el espacio total disponible, en este caso los 1200px de la clase contenedor, entre los elementos que ocupan este espacio y reparte el contenido de forma uniforme entre los elementos. Cómo solo tenemos un elemento, dividimos los 1200 entre 1, asignando todo el espacio al único elemento que hemos definido */
+    color: #ffffff;
+}
+
+.contenido-contacto p {
+    font-size: 1.8rem;
 }
