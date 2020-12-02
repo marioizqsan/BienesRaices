@@ -98,6 +98,11 @@ h4 {
 
 /* Header */
 
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+
 /* Creamos el selector de estilo para el header usando las dos clases site-header e inicio de forma conjunta */
 
 .site-header.inicio {
@@ -197,14 +202,22 @@ h4 {
 /** Anuncios **/
 
 .contenedor-anuncios {
+    flex-wrap: wrap;
+    /* Esta propiedad nos ha permitido separar los anuncios en 2 filas de 3 columnas en la página de anuncios.html */
     display: flex;
     justify-content: space-between;
 }
 
 .anuncio {
+    flex-grow: 0;
+    /* Permite que el contenido crezca si es posible */
+    flex-shrink: 0;
+    /* Por defecto esta propiedad se inicializa a 1. Si se pone a 0 provoca que los elementos mantengan el tamaño establecido. */
     flex-basis: calc(33.3% - 1rem);
+    /* Estas tres propiedades anteriores se pueden agrupar en flex: 0 0 calc(33.3% - 1rem); Siendo el orden grow - shrink - basis. */
     border: 1px solid #B5B5B5;
     background-color: #f5f5f5;
+    margin-bottom: 2rem;
 }
 
 .contenido-anuncio {
@@ -375,4 +388,20 @@ h4 {
 .copyright {
     margin: 0;
     color: #ffffff;
+}
+
+/** CSS para las páginas internas **/
+
+.contenido-nosotros {
+    display: grid;
+    /* Es el otro estándar actual junto a Flexbox para colocar el contenido */
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+}
+
+.texto-nosotros blockquote {
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
 }
